@@ -151,24 +151,7 @@ CHIJMES HALL · SINGAPORE
   ♡ Enter Our Love Story
 </button>
 
-<script>
-const music = document.getElementById("weddingMusic");
-const button = document.getElementById("enterMusicButton");
 
-button.addEventListener("click", async () => {
-  if (music.paused) {
-    try {
-      await music.play();
-      button.textContent = "♫ Pause Music";
-    } catch (error) {
-      button.textContent = "Tap to Try Music Again";
-    }
-  } else {
-    music.pause();
-    button.textContent = "♫ Play Music";
-  }
-});
-</script>
 
 </body>
 </html>
