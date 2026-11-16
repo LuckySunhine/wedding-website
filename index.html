@@ -2,37 +2,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nicholas & Yen Ling | Our Wedding</title>
-  <style>
-    body {
-      margin: 0;
-      background: #f8f4ed;
-      color: #51463e;
-      font-family: Georgia, serif;
-      text-align: center;
-    }
-    main {
-      padding: 80px 20px;
-    }
-    h1 {
-      font-size: 42px;
-      font-weight: normal;
-    }
-    p {
-      letter-spacing: 2px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nicholas & Yen Ling | Our Wedding</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f8f4ed;
+  color: #51463e;
+  font-family: Georgia, "Times New Roman", serif;
+  text-align: center;
+}
+
+main {
+  max-width: 720px;
+  margin: auto;
+  padding: 40px 22px 70px;
+}
+
+.small-title {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #907e6c;
+}
+
+h1 {
+  font-size: clamp(38px, 9vw, 64px);
+  font-weight: normal;
+  font-style: italic;
+  line-height: 1.15;
+  margin: 25px 0;
+}
+
+.cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 180px 180px 5px 5px;
+  margin: 30px auto;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.line {
+  width: 55px;
+  border-top: 1px solid #b7a28d;
+  margin: 30px auto;
+}
+
+.details {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  line-height: 2.2;
+  color: #806f60;
+}
+</style>
 </head>
+
 <body>
-  <main>
-    <p>THE WEDDING OF</p>
-    <h1>Nicholas & Yen Ling</h1>
-    <p>🍀 Lucky & Sunshine ☀️</p>
-    <h2>Forever and Always</h2>
-    <p>14 MARCH 2027</p>
-    <p>CHIJMES HALL · SINGAPORE</p>
-  </main>
+<main>
+
+<p class="small-title">THE WEDDING OF</p>
+
+<h1>Nicholas<br>&amp; Yen Ling</h1>
+
+<img
+  class="cover"
+  src="cover.jpg.PNG"
+  alt="Nicholas and Yen Ling at golden mountain sunset"
+>
+
+<p class="small-title">LUCKY &amp; SUNSHINE</p>
+
+<div class="line"></div>
+
+<h2>Forever and Always</h2>
+
+<p class="details">
+SUNDAY, 14 MARCH 2027<br>
+CHIJMES HALL · SINGAPORE
+</p>
+
+</main>
 </body>
 </html>
