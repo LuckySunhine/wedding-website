@@ -100,5 +100,33 @@ CHIJMES HALL · SINGAPORE
   <source src="wedding-music.mp3.mp3" type="audio/mpeg">
 </audio>
 
+<button id="enterMusicButton" type="button"
+  style="background:#7e6c5b;color:white;
+  border:0;border-radius:30px;
+  padding:16px 26px;font-size:16px;
+  font-family:Georgia,serif;
+  margin:25px auto;cursor:pointer;">
+  ♡ Enter Our Love Story
+</button>
+
+<script>
+const music = document.getElementById("weddingMusic");
+const button = document.getElementById("enterMusicButton");
+
+button.addEventListener("click", async () => {
+  if (music.paused) {
+    try {
+      await music.play();
+      button.textContent = "♫ Pause Music";
+    } catch (error) {
+      button.textContent = "Tap to Try Music Again";
+    }
+  } else {
+    music.pause();
+    button.textContent = "♫ Play Music";
+  }
+});
+</script>
+
 </body>
 </html>
