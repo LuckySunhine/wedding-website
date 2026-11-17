@@ -218,6 +218,44 @@ body:has(#enterMusicButton:not([style*="display: none"])) {
   margin: 12px auto 24px;
 }
 
+/* Romantic chapter introduction */
+.chapter-intro {
+  text-align: center;
+  margin: 45px auto 30px;
+}
+
+.chapter-script {
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-size: clamp(38px, 9vw, 60px);
+  font-style: italic;
+  font-weight: 400;
+  color: #c58b59;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.chapter-script::before,
+.chapter-script::after {
+  content: "";
+  width: 45px;
+  height: 1px;
+  background: #c58b59;
+  opacity: 0.65;
+}
+
+.chapter-date {
+  font-family: Georgia, serif;
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: #806b5d;
+  margin-top: 12px;
+}
+
 </style>
 </head>
 
@@ -475,7 +513,12 @@ body:has(#enterMusicButton:not([style*="display: none"])) {
 </p>
 
 <div class="chapter">
-  <p class="story-small">CHAPTER ONE · 17 NOV 2024</p>
+
+<div class="chapter-intro">
+  <div class="chapter-script">Chapter One</div>
+  <div class="chapter-date">17 NOV 2024</div>
+</div>
+
   <h2 class="story-heading">The Unexpected First Date</h2>
   <p class="story-text">
     One picnic. One language barrier.
