@@ -860,11 +860,65 @@ enterButton.addEventListener('click', function () {
       });
     });
 
-  form.addEventListener('submit', function (event) {
-    event.preventDefault();
+  
+form.addEventListener('submit', async function (event) {
+  event.preventDefault();
+
+  const attendance = form.querySelector(
+    'input[name="attendance"]:checked'
+  ).value;
+
+  const guests = attendance === 'yes'
+    ? Array.from(guestList.children).map(function (card) {
+        return {
+          name: card.querySelector('.guest-name').value.trim(),
+          meal: card.querySelector('.guest-meal').value,
+          child: card.querySelector('.guest-child').checked,
+          kidsMeal: card.querySelector('.guest-kids-meal').checked
+        };
+      })
+    : [];
+
+  const data = {
+    attendance: attendance,
+    name: attendance === 'yes'
+      ? guests[0].name
+      : document.getElementById('declineName').value.trim(),
+    guests: guests,
+    solemnCount: attendance === 'yes'
+      ? Number(solemnCount.value)
+      : 0,
+    remarks: ''
+  };
+
+  const url =
+    'https://script.google.com/macros/s/AKfycbx2WBcYb9NS_4ggeiJnHkpdq0YormHskKL2MamEFs8I6mNghBVZV2PYhF7zKGlsQlXw/exec';
+
+  const submitButton = form.querySelector('[type="submit"]');
+  submitButton.disabled = true;
+  message.textContent = 'Sending your RSVP...';
+
+  try {
+    await fetch(url, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'text/plain;charset=utf-8'
+      },
+      body: JSON.stringify(data)
+    });
+
     message.textContent =
-      'RSVP preview only — submission will be enabled after testing.';
-  });
+      'Your RSVP has been sent. Thank you! ♡';
+    form.reset();
+  } catch (error) {
+    message.textContent =
+      'Unable to send RSVP. Please try again.';
+  } finally {
+    submitButton.disabled = false;
+  }
+});
+
 
   addGuest();
 })();
