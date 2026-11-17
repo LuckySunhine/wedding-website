@@ -82,11 +82,7 @@ background: #f8f4ed !important;
 color: #51463e !important;
 z-index: 9999;
 
-background-image: url("Weddinglogo.PNG");
-background-repeat: no-repeat !important;
-background-position: center 88% !important;
-background-size: min(38vw, 155px) auto;
-  
+
 display: flex;
 align-items: center;
 justify-content: center;
@@ -130,6 +126,15 @@ content: "♡ Tap to begin with Lucky & Sunshine ♡";
   letter-spacing: 1px;
   color: #806f60;
   margin-top: 12px;
+  order: 2;
+}
+  #enterMusicButton > img {
+  order: 3;
+  width: 140px !important;
+  max-width: 38vw;
+  height: auto;
+  margin: 8px auto 0 !important;
+  object-fit: contain;
 }
 
 @keyframes entranceGlow {
@@ -699,7 +704,20 @@ Forever and Always ♡
 <span class="enter-label">
   ♡ Enter Our Love Story →
 </span>
-
+  
+<img
+  src="Weddinglogo.PNG"
+  alt="Lucky and Sunshine Wedding Logo"
+  style="
+    display:block;
+    width:140px;
+    max-width:38vw;
+    height:auto;
+    margin:35px auto 0;
+    border-radius:4px;
+  "
+>
+  
 </button>
 
 
