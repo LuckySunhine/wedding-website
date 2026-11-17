@@ -109,6 +109,27 @@ h2 {
   color: #927b66;
 }
 
+/* Romantic entrance invitation */
+#enterMusicButton {
+  cursor: pointer !important;
+  animation: entranceGlow 2.5s ease-in-out infinite;
+}
+
+#enterMusicButton::after {
+  content: "♡ Tap to begin our journey ♡";
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #806f60;
+  margin-top: 12px;
+}
+
+@keyframes entranceGlow {
+  0%, 100% { background: #f8f4ed; }
+  50% { background: #f0e8dc; }
+}
+
 </style>
 </head>
 
