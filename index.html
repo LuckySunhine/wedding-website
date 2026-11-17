@@ -235,10 +235,101 @@ body:has(#enterMusicButton:not([style*="display: none"])) {
   "
 >
 
-<p class="details">
-SUNDAY, 14 MARCH 2027<br>
-CHIJMES HALL · SINGAPORE
-</p>
+
+<!-- Wedding date and venue -->
+<div style="text-align:center; margin:45px auto 35px; color:#806f60;">
+
+  <p style="font-size:13px; letter-spacing:4px; margin-bottom:12px;">
+    SUNDAY
+  </p>
+
+  <div style="font-family:Georgia,serif; font-size:34px; color:#51463e; letter-spacing:3px;">
+    14 · 03 · 2027
+  </div>
+
+  <div style="width:65px; height:1px; background:#b49a7e; margin:25px auto;"></div>
+
+  <div style="font-family:Georgia,serif; font-size:25px; letter-spacing:2px; color:#51463e;">
+    CHIJMES HALL
+  </div>
+
+  <p style="font-size:13px; letter-spacing:3px; margin-top:12px;">
+    SINGAPORE
+  </p>
+
+</div>
+
+<!-- Live wedding countdown -->
+<div style="text-align:center; margin:35px auto 50px;">
+
+  <p style="font-family:Georgia,serif; font-style:italic; font-size:22px; color:#806f60;">
+    ♡ Counting Down to Forever ♡
+  </p>
+
+  <div id="wedding-countdown" style="display:flex; justify-content:center; gap:10px; margin-top:25px; flex-wrap:wrap;">
+
+    <div class="countdown-box"><strong id="count-days">00</strong><span>DAYS</span></div>
+    <div class="countdown-box"><strong id="count-hours">00</strong><span>HOURS</span></div>
+    <div class="countdown-box"><strong id="count-minutes">00</strong><span>MIN</span></div>
+    <div class="countdown-box"><strong id="count-seconds">00</strong><span>SEC</span></div>
+
+  </div>
+</div>
+
+<style>
+.countdown-box {
+  background:#f1e9de;
+  border:1px solid #dfd0bd;
+  border-radius:12px;
+  width:65px;
+  padding:13px 5px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:7px;
+}
+.countdown-box strong {
+  font-family:Georgia,serif;
+  font-size:25px;
+  color:#51463e;
+}
+.countdown-box span {
+  font-size:10px;
+  letter-spacing:1px;
+  color:#806f60;
+}
+</style>
+
+<script>
+(function () {
+  const weddingDate = new Date("2027-03-14T00:00:00+08:00").getTime();
+
+  function updateCountdown() {
+    const difference = weddingDate - Date.now();
+
+    if (difference <= 0) {
+      document.getElementById("wedding-countdown").innerHTML =
+        "<p style='font-family:Georgia,serif;color:#806f60;'>Our Forever Begins Today ♡</p>";
+      clearInterval(timer);
+      return;
+    }
+
+    const days = Math.floor(difference / 86400000);
+    const hours = Math.floor((difference / 3600000) % 24);
+    const minutes = Math.floor((difference / 60000) % 60);
+    const seconds = Math.floor((difference / 1000) % 60);
+
+    document.getElementById("count-days").textContent = days;
+    document.getElementById("count-hours").textContent = String(hours).padStart(2, "0");
+    document.getElementById("count-minutes").textContent = String(minutes).padStart(2, "0");
+    document.getElementById("count-seconds").textContent = String(seconds).padStart(2, "0");
+  }
+
+  updateCountdown();
+  const timer = setInterval(updateCountdown, 1000);
+})();
+</script>
+
 
 </main>
 
