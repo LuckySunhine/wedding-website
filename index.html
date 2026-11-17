@@ -544,6 +544,118 @@ Forever and Always ♡
 <!-- END GUEST INFORMATION -->
 
   
+<!-- RSVP SECTION -->
+<section id="rsvp" style="
+  background:#f8f4ed;
+  padding:85px 20px;
+  text-align:center;
+  color:#51463e;
+  font-family:Georgia,serif;
+">
+
+  <p style="font-size:11px;letter-spacing:3px;color:#9b826b;">
+    NICHOLAS & YEN LING
+  </p>
+
+  <h2 style="
+    font-size:clamp(29px,7vw,42px);
+    font-style:italic;
+    font-weight:normal;
+    white-space:nowrap;
+    margin:18px 0;
+  ">Kindly RSVP</h2>
+
+  <p style="font-size:14px;color:#8b7969;">
+    We can't wait to celebrate with you. ♡
+  </p>
+
+  <form id="weddingRSVP" style="
+    max-width:440px;
+    margin:35px auto;
+    text-align:left;
+  ">
+
+    <p>Will you be joining us?</p>
+    <label><input type="radio" name="attendance" value="yes" checked>
+      Joyfully accepts</label><br>
+    <label><input type="radio" name="attendance" value="no">
+      Regretfully declines</label>
+
+    <div id="attendingDetails">
+      <h3 style="font-weight:normal;margin-top:30px;">
+        Guest Details
+      </h3>
+
+      <div id="guestList"></div>
+
+      <button type="button" id="addGuest">
+        + Add Guest
+      </button>
+
+      <p id="guestCount">Total: 1 pax</p>
+
+      <h3 style="font-weight:normal;margin-top:30px;">
+        Attending the Solemnisation?
+      </h3>
+
+      <p style="font-size:13px;color:#8b7969;">
+        10:30 AM · CHIJMES Hall
+      </p>
+
+      <label for="solemnCount">
+        Number attending
+      </label>
+
+      <select id="solemnCount" style="display:block;width:100%;padding:12px;margin:10px 0;">
+        <option value="0">0</option>
+        <option value="1">1</option>
+      </select>
+
+      <p id="solemnReminder" style="
+        display:none;
+        background:#fffaf5;
+        padding:18px;
+        font-size:13px;
+        line-height:1.8;
+        border-radius:10px;
+      ">
+        ♡ Kindly be seated by 10:15 AM.
+        Doors will remain closed during the solemnisation.
+      </p>
+    </div>
+
+    <div id="declineDetails" style="display:none;margin-top:25px;">
+      <label for="declineName">Your full name</label>
+      <input id="declineName" type="text"
+        placeholder="Full name"
+        style="width:100%;padding:12px;box-sizing:border-box;">
+    </div>
+
+    <button type="submit" id="rsvpSubmit" style="
+      display:block;
+      margin:35px auto 0;
+      padding:14px 35px;
+      background:#7e6c5b;
+      color:white;
+      border:0;
+      border-radius:30px;
+      font-family:Georgia,serif;
+      font-size:15px;
+      cursor:pointer;
+    ">
+      Send RSVP ♡
+    </button>
+
+    <p id="rsvpMessage" role="status" aria-live="polite"
+      style="text-align:center;font-size:13px;"></p>
+  </form>
+
+  <p style="font-style:italic;color:#9b826b;">
+    Forever and Always ♡
+  </p>
+</section>
+<!-- END RSVP SECTION -->
+
 <audio id="weddingMusic" loop preload="none">
   <source src="wedding-music.mp3.mp3" type="audio/mpeg">
 </audio>
