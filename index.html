@@ -743,10 +743,14 @@ enterButton.addEventListener('click', function () {
     updateReminder();
   }
 
-  function updateReminder() {
-    reminder.style.display =
-      Number(solemnCount.value) > 0 ? 'block' : 'none';
-  }
+  
+function updateReminder() {
+  reminder.style.display =
+    Number(solemnCount.value) > 0 ? 'block' : 'none';
+}
+
+updateReminder();
+
 
   function addGuest() {
     if (guestList.children.length >= 20) return;
