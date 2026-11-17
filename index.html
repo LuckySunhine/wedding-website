@@ -692,5 +692,172 @@ enterButton.addEventListener('click', function () {
 
 </script>
 
+<!-- RSVP INTERACTIVE FIELDS -->
+<script>
+(function () {
+  const form = document.getElementById('weddingRSVP');
+  const guestList = document.getElementById('guestList');
+  const addButton = document.getElementById('addGuest');
+  const guestCount = document.getElementById('guestCount');
+  const solemnCount = document.getElementById('solemnCount');
+  const reminder = document.getElementById('solemnReminder');
+  const attendingDetails = document.getElementById('attendingDetails');
+  const declineDetails = document.getElementById('declineDetails');
+  const message = document.getElementById('rsvpMessage');
+
+  if (!form) return;
+
+  const fieldStyle =
+    'width:100%;padding:12px;margin:7px 0 15px;' +
+    'box-sizing:border-box;border:1px solid #ded2c4;' +
+    'border-radius:8px;background:#fffdf9;' +
+    'color:#51463e;font:15px Georgia,serif;';
+
+  function updateCount() {
+    const count = guestList.children.length;
+    guestCount.textContent = 'Total: ' + count + ' pax';
+
+    const previous = Number(solemnCount.value);
+    solemnCount.innerHTML = '';
+
+    for (let i = 0; i <= count; i++) {
+      const option = document.createElement('option');
+      option.value = i;
+      option.textContent = i;
+      solemnCount.appendChild(option);
+    }
+
+    solemnCount.value = Math.min(previous, count);
+    updateReminder();
+  }
+
+  function updateReminder() {
+    reminder.style.display =
+      Number(solemnCount.value) > 0 ? 'block' : 'none';
+  }
+
+  function addGuest() {
+    if (guestList.children.length >= 20) return;
+
+    const card = document.createElement('div');
+    card.style.cssText =
+      'padding:20px 0;border-bottom:1px solid #e5d9cb;';
+
+    const heading = document.createElement('div');
+    heading.style.cssText =
+      'display:flex;justify-content:space-between;' +
+      'align-items:center;margin-bottom:12px;';
+
+    const guestTitle = document.createElement('span');
+    guestTitle.className = 'guest-title';
+    guestTitle.style.color = '#9b826b';
+
+    const remove = document.createElement('button');
+    remove.type = 'button';
+    remove.textContent = 'Remove';
+    remove.style.cssText =
+      'border:0;background:none;color:#9b826b;' +
+      'font:13px Georgia,serif;cursor:pointer;';
+
+    remove.addEventListener('click', function () {
+      if (guestList.children.length <= 1) return;
+      card.remove();
+      renumber();
+      updateCount();
+    });
+
+    heading.append(guestTitle, remove);
+
+    const name = document.createElement('input');
+    name.type = 'text';
+    name.placeholder = 'Full name';
+    name.required = true;
+    name.maxLength = 150;
+    name.className = 'guest-name';
+    name.style.cssText = fieldStyle;
+
+    const meal = document.createElement('select');
+    meal.className = 'guest-meal';
+    meal.style.cssText = fieldStyle;
+
+    [
+      ['Standard', 'Standard meal'],
+      ['Vegetarian', 'Vegetarian'],
+      ['Halal', 'Halal']
+    ].forEach(function (item) {
+      const option = document.createElement('option');
+      option.value = item[0];
+      option.textContent = item[1];
+      meal.appendChild(option);
+    });
+
+    const childLabel = document.createElement('label');
+    childLabel.style.cssText = 'display:block;margin:8px 0;';
+    const child = document.createElement('input');
+    child.type = 'checkbox';
+    child.className = 'guest-child';
+    childLabel.append(child, ' Child under 12');
+
+    const kidsLabel = document.createElement('label');
+    kidsLabel.style.cssText =
+      'display:none;margin:10px 0;color:#7e6c5b;';
+    const kidsMeal = document.createElement('input');
+    kidsMeal.type = 'checkbox';
+    kidsMeal.className = 'guest-kids-meal';
+    kidsLabel.append(kidsMeal, " Children's meal required");
+
+    child.addEventListener('change', function () {
+      kidsLabel.style.display = child.checked ? 'block' : 'none';
+      if (!child.checked) kidsMeal.checked = false;
+    });
+
+    card.append(heading, name, meal, childLabel, kidsLabel);
+    guestList.appendChild(card);
+
+    renumber();
+    updateCount();
+  }
+
+  function renumber() {
+    Array.from(guestList.children).forEach(function (card, i) {
+      card.querySelector('.guest-title').textContent =
+        'GUEST ' + (i + 1);
+      card.querySelector('button').style.display =
+        guestList.children.length === 1 ? 'none' : 'inline';
+    });
+  }
+
+  addButton.addEventListener('click', addGuest);
+  solemnCount.addEventListener('change', updateReminder);
+
+  form.querySelectorAll('input[name="attendance"]')
+    .forEach(function (radio) {
+      radio.addEventListener('change', function () {
+        const yes = form.querySelector(
+          'input[name="attendance"]:checked'
+        ).value === 'yes';
+
+        attendingDetails.style.display = yes ? 'block' : 'none';
+        declineDetails.style.display = yes ? 'none' : 'block';
+
+        guestList.querySelectorAll('.guest-name')
+          .forEach(input => input.required = yes);
+
+        document.getElementById('declineName').required = !yes;
+        message.textContent = '';
+      });
+    });
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    message.textContent =
+      'RSVP preview only — submission will be enabled after testing.';
+  });
+
+  addGuest();
+})();
+</script>
+<!-- END RSVP INTERACTIVE FIELDS -->
+
 </body>
 </html>
