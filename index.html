@@ -912,15 +912,21 @@ form.addEventListener('submit', async function (event) {
       body: JSON.stringify(data)
     });
 
+    
     message.textContent =
       'Your RSVP has been sent. Thank you! ♡';
-    form.reset();
+
+    submitButton.textContent = 'RSVP Sent ♡';
+    submitButton.disabled = true;
+
   } catch (error) {
     message.textContent =
       'Unable to send RSVP. Please try again.';
-  } finally {
     submitButton.disabled = false;
+    submitButton.textContent = 'Send RSVP ♡';
   }
+
+
 });
 
 
