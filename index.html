@@ -694,7 +694,7 @@ Forever and Always ♡
 
 enterButton.addEventListener('click', function () {
   enterButton.style.setProperty('display', 'none', 'important');
-
+document.getElementById('home')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   if (weddingMusic) {
     weddingMusic.play().catch(function () {
       console.log('Music playback unavailable');
