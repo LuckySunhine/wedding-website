@@ -144,6 +144,24 @@ h2 {
   box-shadow: 0 5px 18px rgba(80,65,50,0.08);
 }
 
+/* Brown wedding entrance button */
+#enterMusicButton .enter-label {
+  display: inline-block;
+  background: #7e6c5b;
+  color: #ffffff;
+  padding: 17px 28px;
+  border-radius: 40px;
+  box-shadow: 0 6px 18px rgba(80,65,50,0.18);
+  font-family: Georgia, serif;
+  font-size: 22px;
+  line-height: 1.4;
+  transition: transform 0.2s ease;
+}
+
+#enterMusicButton:active .enter-label {
+  transform: scale(0.97);
+}
+
 </style>
 </head>
 
@@ -183,7 +201,11 @@ CHIJMES HALL · SINGAPORE
   padding:16px 26px;font-size:16px;
   font-family:Georgia,serif;
   margin:25px auto;cursor:pointer;">
-  ♡ Enter Our Love Story
+
+<span class="enter-label">
+  ♡ Enter Our Love Story →
+</span>
+
 </button>
 
 
