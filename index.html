@@ -70,18 +70,13 @@ h2 {
   
 /* Romantic Ivory full-screen entrance */
 #enterMusicButton {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  inset: 0;
-  width: 100%;
-  height: 100vh;
-  height: 100dvh;
-  min-height: 100vh;
-  min-height: 100dvh;
-  box-sizing: border-box;
+position: fixed;
+inset: 0;
+width: 100%;
+height: 100vh;
+height: 100dvh;
+box-sizing: border-box;
+overflow: hidden;
   margin: 0 !important;
   padding: 40px 25px !important;
   border: 0 !important;
@@ -138,8 +133,8 @@ content: "♡ Tap to begin with Lucky & Sunshine ♡";
 }
   #enterMusicButton > img {
   order: 3;
-  width: 140px !important;
-  max-width: 38vw;
+  width: 190px !important;
+  max-width: 48vw;
   height: auto;
   margin: 8px auto 0 !important;
   object-fit: contain;
@@ -198,7 +193,12 @@ content: "♡ Tap to begin with Lucky & Sunshine ♡";
   color: #b49a7e;
   text-decoration: underline;
 }
-
+  /* Lock scrolling only while entrance is visible */
+html:has(#enterMusicButton:not([style*="display: none"])),
+body:has(#enterMusicButton:not([style*="display: none"])) {
+    overflow: hidden;
+}
+  
 </style>
 </head>
 
