@@ -153,5 +153,17 @@ CHIJMES HALL · SINGAPORE
 
 
 
+<script>
+  const enterButton = document.getElementById('enterMusicButton');
+  const weddingMusic = document.getElementById('weddingMusic');
+
+  enterButton.addEventListener('click', () => {
+    enterButton.style.display = 'none';
+    weddingMusic.play().catch(() => {
+      // The website remains accessible if audio playback is unavailable.
+    });
+  });
+</script>
+
 </body>
 </html>
